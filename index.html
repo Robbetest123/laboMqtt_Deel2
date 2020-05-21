@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MQTT met browser - klassikale demo</title>
+ 
+<script src="https://unpkg.com/mqtt@4.0.1/dist/mqtt.min.js"></script>
+ 
+ 
+  </head>
+  <body>
+    <h1>MQTT met browser - klassikale demo</h1>
+    <div id="input"></div>
+    
+    <script> 
+            var client = mqtt.connect("ws://test.mosquitto.org:8080/ws")
+            client.subscribe('CHANGE_DETECTED')
+ 
+        client.on("message", function (topic, payload) {
+            console.log(topic, payload)
+            document.getElementById('input').innerHTML = [topic, payload].join(": ")
+        })
+         
+    </script>
+  </body>
+</html>
+
