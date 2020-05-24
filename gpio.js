@@ -8,16 +8,7 @@ class GPIO {
         this.mypin = new Gpio(17, 'in','both')
         /** 3 inputs */
         this.inputs = []
-    }
-    
-    relaisOn() {
-        this.relais.writeSync(0)
-    }
-
-    relaisOff() {
-        this.relais.writeSync(1)
-    }
-   
+    }  
 
     readInputs() {
          const result = []
